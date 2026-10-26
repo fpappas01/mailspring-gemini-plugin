@@ -1,0 +1,135 @@
+@import "ui-variables";
+
+// ──────────────────────────────────────────────────────────────
+// Wrapper — positioning in the composer action bar
+// Placed to the right of "Attach File" and left of "Delete Draft"
+// ──────────────────────────────────────────────────────────────
+.gemini-composer-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 8px;
+  order: 50;
+
+  .gemini-btn {
+    font-weight: 600;
+    color: @text-color;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+
+    &.is-loading {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
+    &:hover:not(.is-loading) {
+      opacity: 0.85;
+    }
+  }
+}
+
+// ──────────────────────────────────────────────────────────────
+// Theme-aware Popover Menu (rendered in Mailspring's root popover layer)
+// ──────────────────────────────────────────────────────────────
+.gemini-popover-container {
+  min-width: 260px;
+  background-color: @background-primary;
+  color: @text-color;
+  border: 1px solid @border-color-divider;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+  padding: 6px 0;
+  font-family: inherit;
+
+  .gemini-menu-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gemini-menu-item {
+    padding: 8px 14px;
+    font-size: 13px;
+    color: @text-color;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.1s ease;
+
+    &:hover {
+      background-color: @background-secondary;
+    }
+  }
+
+  .gemini-menu-divider {
+    margin: 4px 0;
+    border: 0;
+    border-top: 1px solid @border-color-divider;
+  }
+
+  .gemini-menu-panel {
+    padding: 12px;
+    min-width: 270px;
+  }
+
+  .gemini-menu-panel-header {
+    font-weight: 600;
+    font-size: 12px;
+    color: @text-color;
+    margin-bottom: 6px;
+  }
+
+  .gemini-menu-input {
+    width: 100%;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid @border-color-divider;
+    background-color: @background-primary;
+    color: @text-color;
+    font-size: 13px;
+
+    &:focus {
+      outline: none;
+      border-color: @component-active-color;
+    }
+  }
+
+  .gemini-menu-textarea {
+    width: 100%;
+    padding: 6px 8px;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid @border-color-divider;
+    background-color: @background-primary;
+    color: @text-color;
+    font-size: 13px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 64px;
+
+    &:focus {
+      outline: none;
+      border-color: @component-active-color;
+    }
+  }
+
+  .gemini-menu-panel-hint {
+    font-size: 11px;
+    color: @text-color-subtle;
+    margin-bottom: 8px;
+  }
+
+  .gemini-menu-panel-actions {
+    display: flex;
+    gap: 6px;
+
+    .btn {
+      cursor: pointer;
+    }
+
+    .btn-emphasis {
+      flex: 1;
+    }
+  }
+}

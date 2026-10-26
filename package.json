@@ -1,0 +1,45 @@
+{
+  "name": "mailspring-gemini-assistant",
+  "title": "Gemini AI Email Assistant",
+  "version": "1.0.0",
+  "description": "Edit, proofread, and improve emails in Mailspring using the Google Gemini API.",
+  "main": "./lib/main.js",
+  "engines": {
+    "mailspring": ">=1.0.0"
+  },
+  "windowTypes": {
+    "default": true,
+    "composer": true,
+    "thread-popout": true
+  },
+  "license": "MIT",
+  "configSchema": {
+    "apiKey": {
+      "title": "Gemini API Key",
+      "description": "Enter your free API Key from Google AI Studio.",
+      "type": "string",
+      "default": ""
+    },
+    "model": {
+      "title": "Gemini Model",
+      "description": "Select the primary Gemini model.",
+      "type": "string",
+      "default": "gemini-3.5-flash-lite",
+      "enum": [
+        "gemini-3.5-flash-lite",
+        "gemini-3.1-flash-lite"
+      ]
+    },
+    "thinkingLevel": {
+      "title": "Thinking Level",
+      "description": "Model reasoning depth (low = fastest response).",
+      "type": "string",
+      "default": "low",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    }
+  }
+}
