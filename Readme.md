@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](package.json)
 
-An intelligent, seamless email composition and proofreading plugin for the [Mailspring](https://getmailspring.com/) desktop email client. Powered by the Google Gemini API, this extension empowers you to proofread drafts, adjust tones, translate across languages, and generate context-aware replies directly from your composer toolbar.
+An intelligent, seamless email composition and proofreading plugin for the [Mailspring](https://getmailspring.com/) desktop email client. Powered by the Google Gemini API, this extension empowers you to proofread drafts, adjust tones and translate across languages.
 
 ---
 
@@ -45,22 +45,7 @@ The **Gemini AI Email Assistant** integrates directly into Mailspring's message 
 
 ## Installation
 
-### Option 1: Copy to Mailspring Packages Directory (Recommended)
-
-1. Clone or download this repository.
-2. Place the `mailspring-gemini-assistant` folder into your Mailspring packages directory for your operating system:
-
-| Operating System | Packages Directory Path |
-| :--- | :--- |
-| **Windows** | `%LOCALAPPDATA%\Mailspring\packages\mailspring-gemini-assistant`<br>*(e.g., `C:\Users\<YourUser>\AppData\Local\Mailspring\packages\mailspring-gemini-assistant`)* |
-| **macOS** | `~/Library/Application Support/Mailspring/packages/mailspring-gemini-assistant` |
-| **Linux** | `~/.config/Mailspring/packages/mailspring-gemini-assistant` |
-
-3. Restart Mailspring, or press `Ctrl + Alt + R` (Windows/Linux) or `Cmd + Option + R` (macOS) to reload Mailspring with packages.
-
-### Option 2: Install via Mailspring Developer Menu
-
-1. In Mailspring, navigate to the top menu bar: **Developer** → **Install Package...**
+1. In Mailspring, navigate to the top menu bar: **Developer** → **Install a Plugin**
 2. Browse to and select the `mailspring-gemini-assistant` directory.
 3. Reload Mailspring to activate the plugin.
 
@@ -75,29 +60,10 @@ The **Gemini AI Email Assistant** integrates directly into Mailspring's message 
 
 ### 2. Enter the API Key in Mailspring
 
-You can set your API key in either of two convenient ways:
-
-* **Method A (Fastest — In Composer):**
-  1. Open any email composer in Mailspring.
-  2. Click the **✨ Gemini AI** button in the bottom toolbar.
-  3. Select **Configure API Key**.
-  4. Paste your key and click **Save** (or press `Enter`).
-
-* **Method B (Mailspring Preferences):**
-  1. Go to **Edit** (or **Mailspring**) → **Preferences...**
-  2. Navigate to the **Packages** tab.
-  3. Locate **mailspring-gemini-assistant** and click its **Settings**.
-  4. Enter your API key, select your preferred model, and choose your preferred reasoning/thinking level.
-
-### Configuration Options
-
-| Setting | Config Key | Default | Description |
-| :--- | :--- | :--- | :--- |
-| **Gemini API Key** | `mailspring-gemini-assistant.apiKey` | `""` | Your Google Gemini API Key from Google AI Studio. |
-| **Gemini Model** | `mailspring-gemini-assistant.model` | `gemini-3.5-flash-lite` | Primary model (`gemini-3.5-flash-lite` or `gemini-3.1-flash-lite`). |
-| **Thinking Level** | `mailspring-gemini-assistant.thinkingLevel` | `low` | Model reasoning depth (`low`, `medium`, or `high`). `low` is recommended for fastest email editing. |
-
----
+1. Open any email composer in Mailspring.
+2. Click the **✨ Gemini AI** button in the bottom toolbar.
+3. Select **Configure API Key**.
+4. Paste your key and click **Save** (or press `Enter`).
 
 ## How to Use
 
@@ -120,42 +86,8 @@ You can set your API key in either of two convenient ways:
    > *"Draft a polite follow-up checking if they had a chance to review the attached invoice."*
    >
    > *"Make this sound friendlier and add a note wishing them a good weekend."*
-3. Press **Ctrl + Enter** (or **Cmd + Enter** on macOS), or click **Generate**.
+3. Click **Generate**.
 4. Gemini will execute your prompt and write or update the email body accordingly.
-
-### Keyboard Shortcuts
-
-| Shortcut | Action |
-| :--- | :--- |
-| `Ctrl + Enter` / `Cmd + Enter` | Submit a custom instruction prompt from the text input panel |
-| `Enter` | Save the API key in the API key configuration panel |
-| `Escape` | Close the Gemini popover menu |
-| `Ctrl + Z` / `Cmd + Z` | Undo the AI changes inside the Mailspring composer editor |
-
----
-
-## Testing & Development
-
-This package includes a standalone test suite in `tests/test-gemini.mjs` that verifies:
-* Direct integration with Google's `interactions` endpoint.
-* Prompt constructions across all preset tasks.
-* HTML signature and quote block preservation.
-* Failover handling between models.
-* Stripping of markdown code fences.
-
-### Running Tests
-
-To run the test suite from your terminal:
-
-```bash
-# Using an environment variable for your key:
-export GEMINI_API_KEY="your-gemini-api-key"
-node tests/test-gemini.mjs
-```
-
-*(On Windows PowerShell: `$env:GEMINI_API_KEY="your-gemini-api-key"; node tests/test-gemini.mjs`)*
-
----
 
 ## Project Structure
 
@@ -186,7 +118,7 @@ mailspring-gemini-assistant/
 ### The button does not appear in the composer toolbar
 1. Check that the plugin is placed in the correct `packages` directory for your OS.
 2. In Mailspring, open **Developer** → **Toggle Developer Tools** (`Ctrl + Shift + I` or `Cmd + Option + I`). Check the Console for any package loading errors.
-3. Reload Mailspring via **Developer** → **Reload With Changes**.
+3. Reload Mailspring via **Developer** → **Reload**.
 
 ### Quota or Rate Limit Errors (HTTP 429)
 * The assistant automatically retries with exponential backoff and falls back to `gemini-3.1-flash-lite`. If you hit Google AI Studio's free tier rate limits, wait a few moments before sending another request, or check your quota in the [Google AI Studio Console](https://aistudio.google.com/).
