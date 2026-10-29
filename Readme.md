@@ -110,7 +110,7 @@ mailspring-gemini-assistant/
 ## Troubleshooting & FAQ
 
 ### "No Gemini API Key specified"
-* Open the **✨ Gemini AI** popover menu and select **Configure API Key**, or configure it under Mailspring's **Preferences → Packages → mailspring-gemini-assistant**.
+* Open the **✨ Gemini AI** popover menu and select **Configure API Key**.
 
 ### "Empty Email" Warning
 * The preset actions (Proofread, Formal Tone, Concise, Translate) require some text in the composer before running. If you want to generate an email from scratch, use **Custom Instruction...**.
@@ -119,6 +119,7 @@ mailspring-gemini-assistant/
 1. Check that the plugin is placed in the correct `packages` directory for your OS.
 2. In Mailspring, open **Developer** → **Toggle Developer Tools** (`Ctrl + Shift + I` or `Cmd + Option + I`). Check the Console for any package loading errors.
 3. Reload Mailspring via **Developer** → **Reload**.
+4. Close the Mailspring client and reopen it.
 
 ### Quota or Rate Limit Errors (HTTP 429)
 * The assistant automatically retries with exponential backoff and falls back to `gemini-3.1-flash-lite`. If you hit Google AI Studio's free tier rate limits, wait a few moments before sending another request, or check your quota in the [Google AI Studio Console](https://aistudio.google.com/).
