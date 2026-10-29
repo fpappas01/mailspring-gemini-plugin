@@ -1,4 +1,4 @@
-# ✉️ Gemini AI Email Assistant for Mailspring
+# Gemini AI Email Assistant for Mailspring
 
 [![Mailspring Version](https://img.shields.io/badge/mailspring-%3E%3D1.0.0-0080FF.svg)](https://getmailspring.com/)
 [![Gemini API](https://img.shields.io/badge/Powered%20By-Google%20Gemini-4285F4.svg)](https://aistudio.google.com/)
